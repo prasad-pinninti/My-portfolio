@@ -30,28 +30,10 @@ body {
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   color: var(--text);
   background: 
-    radial-gradient(ellipse at top left, rgba(34,211,238,.15) 0%, transparent 50%),
-    radial-gradient(ellipse at top right, rgba(14,165,233,.1) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom left, rgba(168,85,247,.08) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom right, rgba(236,72,153,.06) 0%, transparent 50%),
+    radial-gradient(ellipse at top left, rgba(34,211,238,.08) 0%, transparent 50%),
+    radial-gradient(ellipse at top right, rgba(14,165,233,.05) 0%, transparent 50%),
     var(--bg);
   line-height: 1.6;
-  position: relative;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(34,211,238,.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(14,165,233,.03) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(168,85,247,.02) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: -1;
 }
 
 .container {
@@ -140,39 +122,13 @@ body::before {
   height: 280px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid var(--brand);
-  box-shadow: 
-    0 20px 40px rgba(0,0,0,.15), 
-    0 0 0 8px color-mix(in srgb, var(--brand) 20%, transparent),
-    0 0 0 16px color-mix(in srgb, var(--brand) 8%, transparent);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-}
-
-.profile-circle::before {
-  content: '';
-  position: absolute;
-  top: -8px;
-  left: -8px;
-  right: -8px;
-  bottom: -8px;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, var(--brand), rgba(168,85,247,.5), var(--brand));
-  z-index: -1;
-  animation: rotate 10s linear infinite;
-}
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  border: 3px solid var(--brand);
+  box-shadow: 0 8px 24px rgba(0,0,0,.15);
+  transition: transform 0.3s ease;
 }
 
 .profile-circle:hover {
-  transform: scale(1.05);
-  box-shadow: 
-    0 25px 50px rgba(0,0,0,.2), 
-    0 0 0 12px color-mix(in srgb, var(--brand) 25%, transparent),
-    0 0 0 24px color-mix(in srgb, var(--brand) 12%, transparent);
+  transform: scale(1.02);
 }
 .hero-content {
   flex: 1;
@@ -225,40 +181,17 @@ body::before {
 
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
 .card { 
-  background: 
-    linear-gradient(135deg, var(--card) 0%, color-mix(in srgb, var(--brand) 3%, var(--card)) 100%);
+  background: var(--card);
   border: 1px solid var(--border); 
   border-radius: 16px; 
   padding: 18px; 
-  box-shadow: 
-    0 8px 32px rgba(0,0,0,.1),
-    0 0 0 1px color-mix(in srgb, var(--brand) 10%, transparent);
+  box-shadow: 0 4px 16px rgba(0,0,0,.1);
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--brand), rgba(168,85,247,.5), var(--brand));
-  opacity: 0;
-  transition: opacity 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 
-    0 16px 48px rgba(0,0,0,.15),
-    0 0 0 1px color-mix(in srgb, var(--brand) 20%, transparent);
-}
-
-.card:hover::before {
-  opacity: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.15);
 }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 8px 0 0; list-style: none; }
 .tags li { 
@@ -266,15 +199,12 @@ body::before {
   border-radius: 999px; 
   border: 1px dashed var(--border); 
   color: var(--muted);
-  background: color-mix(in srgb, var(--brand) 5%, transparent);
   transition: all 0.2s ease;
 }
 
 .tags li:hover {
-  background: color-mix(in srgb, var(--brand) 15%, transparent);
   border-color: var(--brand);
   color: var(--text);
-  transform: translateY(-1px);
 }
 
 .project { display: grid; grid-template-columns: 1fr; }
@@ -446,22 +376,10 @@ body::before {
 .certificate-arrow { font-size: 18px; color: var(--brand); transition: transform 0.2s ease; }
 .certificate-link:hover .certificate-arrow { transform: translateX(4px); }
 
-/* Section backgrounds with subtle effects */
-.section:nth-child(even) {
-  background: 
-    radial-gradient(ellipse at center, color-mix(in srgb, var(--brand) 2%, transparent) 0%, transparent 70%);
-}
-
-.section:nth-child(odd) {
-  background: 
-    radial-gradient(ellipse at center, color-mix(in srgb, rgba(168,85,247,.5) 1%, transparent) 0%, transparent 70%);
-}
-
-/* Hero section special background */
+/* Subtle section backgrounds */
 .hero {
   background: 
-    radial-gradient(ellipse at 30% 20%, rgba(34,211,238,.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% 80%, rgba(168,85,247,.06) 0%, transparent 50%);
+    radial-gradient(ellipse at 30% 20%, rgba(34,211,238,.05) 0%, transparent 50%);
 }
 
 /* Mobile First Responsive Design */
@@ -672,6 +590,62 @@ body::before {
   
   .section {
     padding: 100px 0;
+  }
+}
+
+/* Enhanced Mobile Optimizations */
+@media (max-width: 767px) {
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 200px;
+    text-align: center;
+  }
+  
+  .section-buttons {
+    justify-content: center;
+  }
+  
+  .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .achievement-link {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .achievement-content {
+    text-align: center;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .btn {
+    min-height: 44px;
+    padding: 12px 16px;
+  }
+  
+  .section-buttons .btn {
+    min-height: 36px;
+  }
+  
+  .floating-resume {
+    min-height: 44px;
+    padding: 12px 16px;
+  }
+  
+  .card:hover {
+    transform: none;
+  }
+  
+  .profile-circle:hover {
+    transform: none;
   }
 }
 
