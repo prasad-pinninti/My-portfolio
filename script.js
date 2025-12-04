@@ -54,12 +54,12 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 // Floating + View Resume wiring
 (function wireResume() {
-  var resumeUrl = "resume-sample.html"; // temporary sample resume
+  var resumeUrl = "resume.pdf";
   var anchors = [document.getElementById("floating-resume"), document.querySelector('#resume a'), document.getElementById("view-resume")];
   anchors.forEach(function (a) {
     if (!a) return;
     a.setAttribute("href", resumeUrl);
-    a.removeAttribute("download");
+    a.setAttribute("download", "Prasad_Pinninti_Resume.pdf");
   });
 })();
 
